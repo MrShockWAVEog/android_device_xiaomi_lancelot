@@ -10,6 +10,7 @@ $(call inherit-product, device/xiaomi/mt6768-common/mt6768.mk)
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworksResOverlayLancelot \
+    SettingsOverlayLancelot \
     SettingsProviderOverlayLancelot \
     SystemUIOverlayLancelot
 
