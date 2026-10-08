@@ -5,4 +5,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_lancelot.mk
+    $(LOCAL_DIR)/clover_lancelot.mk
+
+COMMON_LUNCH_CHOICES := \
+    clover_lancelot-cp2a-userdebug
