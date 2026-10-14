@@ -7,6 +7,10 @@
 # Inherit from mt6768-common
 $(call inherit-product, device/xiaomi/mt6768-common/mt6768.mk)
 
+# Axion camera specifications
+AXION_CAMERA_REAR_INFO := 13,8,5,2
+AXION_CAMERA_FRONT_INFO := 8
+
 # Overlays
 PRODUCT_PACKAGES += \
     ApertureOverlayLancelot \
