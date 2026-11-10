@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/custom_lancelot.mk
+    $(LOCAL_DIR)/lancelot.mk
