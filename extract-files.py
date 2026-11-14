@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+from pathlib import Path
+import runpy
+
 from extract_utils.fixups_blob import (
     blob_fixup,
     blob_fixups_user_type,
@@ -19,7 +22,16 @@ namespace_imports = [
     'vendor/xiaomi/mt6768-common',
 ]
 
+def blob_fixup_leica_camera(ctx, file, file_path, *args, **kwargs):
+    patcher = Path(__file__).resolve().parents[1] / 'mt6768-common/camera/patch_vendor.py'
+    runpy.run_path(str(patcher))['patch_file'](file_path, 'lancelot')
+
 blob_fixups: blob_fixups_user_type = {
+    (
+        'vendor/lib64/libmibokeh_mt6768.so',
+        'vendor/lib64/libarcsoft_supernight.so',
+    ): blob_fixup()
+        .call(blob_fixup_leica_camera),
     'vendor/bin/hw/mtkfusionrild' : blob_fixup()
         .add_needed('libutils-v32.so'),
     'vendor/lib/hw/audio.primary.mt6768.so': blob_fixup()
